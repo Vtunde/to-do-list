@@ -1,5 +1,6 @@
 const inputBox= document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
+const taskDeadline = document.getElementById("taskDeadline");
 function addTask(){
     if (inputBox.value === ''){
         alert("Muszáj írnod ide valamit")
@@ -11,6 +12,7 @@ function addTask(){
         let span = document.createElement("span"); //kicsi x
         span.innerHTML= "\u00d7"; 
         li.appendChild(span);
+    
     }
     inputBox.value= "";
     saveData(); 
@@ -33,3 +35,4 @@ function showTask() {
     listContainer.innerHTML = localStorage.getItem("data");
 }
 showTask();
+
