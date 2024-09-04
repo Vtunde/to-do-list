@@ -1,38 +1,45 @@
-const inputBox= document.getElementById("input-box");
-const listContainer = document.getElementById("list-container");
-const taskDeadline = document.getElementById("taskDeadline");
-function addTask(){
-    if (inputBox.value === ''){
-        alert("Muszáj írnod ide valamit")
-    }
-    else{
-        let li = document.createElement("li");
-        li.innerHTML=inputBox.value;
-        listContainer.appendChild(li);
-        let span = document.createElement("span"); //kicsi x
-        span.innerHTML= "\u00d7"; 
-        li.appendChild(span);
+function addTask() { 
+    const taskName = document.getElementById('taskName').value; 
+    const taskDeadline = document.getElementById('taskDeadline').value; 
+    const taskPriority = document.getElementById('taskPriority').value; 
     
-    }
-    inputBox.value= "";
-    saveData(); 
-}
+    if (taskName === '' || taskDeadline === '') { 
+        alert('Töltsd ki a feladat nevét és határidejét!'); 
+        return; 
+    } 
+    const taskList = document.getElementById('taskList'); 
 
-listContainer.addEventListener("click", function(e){
-    if(e.target.tagName==="LI"){
-        e.target.classList.toggle("checked"); //li-re kattintunk bepipál
-        saveData();
-    }
-    else if(e.target.tagName==="SPAN"){
-        e.target.parentElement.remove(); //x-re kattintuk töröl
-    }
-}, false);
+    const li = document.createElement('li'); 
+    li.className = taskPriority;
 
-function saveData(){
-    localStorage.setItem("data", listContainer.innerHTML);
-}
-function showTask() {
-    listContainer.innerHTML = localStorage.getItem("data");
-}
-showTask();
+    const taskInfo = document.createElement('span'); 
+    taskInfo.textContent = `${taskName} - Határidő: ${taskDeadline}`; 
+    
+    const actions = document.createElement('div'); 
+    actions.className = 'task-actions'; 
+    
+    const completeBtn = document.createElement('img'); 
+    completeBtn.src = 'circle.png';  
+    completeBtn.className = 'complete'; 
+    completeBtn.addEventListener('click', () => { 
+        li.classList.toggle('task-completed'); 
+        completeBtn.classList.toggle('checked'); 
+        completeBtn.src = completeBtn.classList.contains('checked') ? 'check.png' : 'circle.png'; // Pipa kép és karika kép cseréje 
+        }); 
+        
+    const deleteBtn = document.createElement('img'); 
+    deleteBtn.src = 'delete.png'; 
+    deleteBtn.addEventListener('click', () => { 
+        taskList.removeChild(li); 
+    }); 
+    actions.appendChild(completeBtn); 
+    actions.appendChild(deleteBtn); 
+    li.appendChild(taskInfo); 
+    li.appendChild(actions); 
+    taskList.appendChild(li); 
 
+    
+    document.getElementById('taskName').value = ''; 
+    document.getElementById('taskDeadline').value = ''; 
+    document.getElementById('taskPriority').value = 'low'; 
+}
