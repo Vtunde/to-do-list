@@ -1,34 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!DOCTYPE html> 
+<html lang="hu"> 
+<head> 
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do list</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="container">
-    <div class="todoApp">
-        <h2>To Do List</h2>
-        <div class="row"></div>
-            <input type="text" id="input-box" placeholder="Írj ide">
-            <button onclick="addTask()">Hozzáad</button>
-            <div id="datetime"> 
-                <label for="naptar">Határidő</label>
-                <input type="date" id="taskDeadline">
-               <!-- <input type="date"name="naptar"> -->
-            </div>
-        <div>
-            <ul id="list-container">
-           <!-- <li class="checked">Feladat 1</li>
-            <li>Feladat 2</li>
-            <li>Feladat 3</li> -->
-            </ul>
-        </div>
-       
-    </div>
-</div>
-
-<script src="java.js"></script>
-</body>
+    <title>To-Do Lista</title> 
+    <link rel="stylesheet" href="style.css"> 
+</head> 
+<body> 
+    <div class="container"> 
+        <h1>To-Do Lista</h1> 
+        <div class="input-section"> 
+            <input type="text" id="taskName" placeholder="Írd ide a feladat nevét"> 
+            <input type="date" id="taskDeadline"> <select id="taskPriority"> 
+                <option value="low">Alacsony</option> 
+                <option value="medium">Közepes</option> 
+                <option value="high">Magas</option> 
+            </select> <button onclick="addTask()">Hozzáadás</button> 
+        </div> 
+        <ul id="taskList"></ul> 
+    </div> 
+    <script src="java.js"></script> 
+</body> 
 </html>
