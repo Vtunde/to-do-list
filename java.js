@@ -24,7 +24,7 @@ function addTask() {
     completeButton.addEventListener('click', () => { 
         li.classList.toggle('task-completed'); 
         completeButton.classList.toggle('checked'); 
-        completeButton.src = completeButton.classList.contains('checked') ? 'check.png' : 'circle.png'; // Pipa kép és karika kép cseréje 
+        completeButton.src = completeButton.classList.contains('checked') ? 'check.png' : 'circle.png';  
         }); 
         
     const deleteButton = document.createElement('img'); 
