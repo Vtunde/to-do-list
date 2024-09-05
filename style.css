@@ -22,7 +22,7 @@ h1 {
     color: #333; 
 } 
 
-.input-section { 
+.inputs { 
     display: flex; 
     flex-direction: column; 
     gap: 10px; 
