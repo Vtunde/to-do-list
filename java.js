@@ -18,22 +18,22 @@ function addTask() {
     const actions = document.createElement('div'); 
     actions.className = 'task-actions'; 
     
-    const completeBtn = document.createElement('img'); 
-    completeBtn.src = 'circle.png';  
-    completeBtn.className = 'complete'; 
-    completeBtn.addEventListener('click', () => { 
+    const completeButton = document.createElement('img'); 
+    completeButton.src = 'circle.png';  
+    completeButton.className = 'complete'; 
+    completeButton.addEventListener('click', () => { 
         li.classList.toggle('task-completed'); 
-        completeBtn.classList.toggle('checked'); 
-        completeBtn.src = completeBtn.classList.contains('checked') ? 'check.png' : 'circle.png'; // Pipa kép és karika kép cseréje 
+        completeButton.classList.toggle('checked'); 
+        completeButton.src = completeButton.classList.contains('checked') ? 'check.png' : 'circle.png'; // Pipa kép és karika kép cseréje 
         }); 
         
-    const deleteBtn = document.createElement('img'); 
-    deleteBtn.src = 'delete.png'; 
-    deleteBtn.addEventListener('click', () => { 
+    const deleteButton = document.createElement('img'); 
+    deleteButton.src = 'delete.png'; 
+    deleteButton.addEventListener('click', () => { 
         taskList.removeChild(li); 
     }); 
-    actions.appendChild(completeBtn); 
-    actions.appendChild(deleteBtn); 
+    actions.appendChild(completeButton); 
+    actions.appendChild(deleteButton); 
     li.appendChild(taskInfo); 
     li.appendChild(actions); 
     taskList.appendChild(li); 
